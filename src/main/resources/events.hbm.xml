@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.subscription.common.OrderData" table="order" catalog="events">
+        <id name="email" type="string">
+            <column name="EMAIL" unique="true" not-null="true"/>
+        </id>
+        <property name="editionCode" type="string">
+            <column name="EDITION_CODE" not-null="true" unique="false" />
+        </property>
+    </class>
+</hibernate-mapping>
