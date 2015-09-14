@@ -7,6 +7,9 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+/**
+ * The schema object that is actually persisted to the database.
+ */
 @Entity  
 @Table (name="events")
 public class EventSchema implements java.io.Serializable{

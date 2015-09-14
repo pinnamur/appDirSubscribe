@@ -4,7 +4,9 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
-
+/**
+ * Responsible for handling the hibernate sessions.
+ */
 public class HibernateManager {
 
     private static final SessionFactory sessionFactory = buildSessionFactory();

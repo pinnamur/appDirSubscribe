@@ -13,10 +13,13 @@ import org.openid4java.consumer.InMemoryNonceVerifier;
 import org.openid4java.discovery.DiscoveryInformation;
 import org.openid4java.message.AuthRequest;
 
+/**
+ * OpenID utility class to handle the authentication requests for users with openId.
+ */
 public class OpenidUtil {
 	public ConsumerManager manager;
 	
-	private String returnToUrl = "https://localhost:8080/api/auth/openid/return";
+	private String returnToUrl = " http://52.25.36.117:8080/appDirSubs/api/auth/openid/return";
 
     public OpenidUtil() {
         manager = new ConsumerManager();

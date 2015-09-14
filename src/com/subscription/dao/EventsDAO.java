@@ -9,8 +9,16 @@ import com.subscription.event.models.Event;
 import com.subscription.orm.HibernateManager;
 import com.subscription.orm.common.EventSchema;
 
+/**
+ * Data Acess Object layer for doing the CRUD operations with the event objects.
+ */
 public class EventsDAO {
 
+	/**
+	 * Retrives all events from its data source.
+	 * 
+	 * @return [description]
+	 */
 	public List<EventSchema> getEvents() {
 		SessionFactory sessionFactory = HibernateManager.getSessionFactory();  
 		Session session = sessionFactory.openSession();  
@@ -22,6 +30,10 @@ public class EventsDAO {
 		return knownOrders;
 	}
 	
+	/**
+	 * Saves an order to its data source.
+	 * @param order [description]
+	 */
 	public void save(Event order) {
 		  SessionFactory sessionFactory = HibernateManager.getSessionFactory();  
 	        Session session = sessionFactory.openSession();  

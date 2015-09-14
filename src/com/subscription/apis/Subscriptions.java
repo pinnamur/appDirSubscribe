@@ -40,16 +40,9 @@ import oauth.signpost.exception.OAuthCommunicationException;
 import oauth.signpost.exception.OAuthExpectationFailedException;
 import oauth.signpost.exception.OAuthMessageSignerException;
 
-// Plain old Java Object it does not extend as class or implements 
-// an interface
-
-// The class registers its methods for the HTTP GET request using the @GET annotation. 
-// Using the @Produces annotation, it defines that it can deliver several MIME types,
-// text, XML and HTML. 
-
-// The browser requests per default the HTML MIME type.
-
-//Sets the path to base URL + /hello
+/**
+ * Handle the suscription events from the AppDirect or related MarketPlace.
+ */
 @Path("/subscription")
 public class Subscriptions {
 
@@ -62,7 +55,8 @@ public class Subscriptions {
 	}
 
 	/**
-	 * This method is called if XML is request
+	 * User purchasing a registered app from AppDirect, will trigger the create event. AppDirect notifies us through this API endpoint.
+	 * It will fetch more information about the order from AppDirect, and persist to a data source.
 	 * 
 	 * @param eventUrl
 	 * @return

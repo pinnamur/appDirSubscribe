@@ -30,9 +30,9 @@ public class Authentication {
 	}
 
 	/**
-	 * This method is called if XML is request
+	 * This method is called to handle requests for openid authentication.
 	 * 
-	 * @param eventUrl
+	 * @param openid openId identifier of the user from the AppDirect marketplace.
 	 * @return
 	 */
 	@GET
@@ -42,6 +42,9 @@ public class Authentication {
 		return new OpenidUtil().authRequest(openId, request, response);
 	}
 
+	/**
+	 * This method will be called/redirected after processing the openId login requests.
+	 */
 	@GET
 	@Path("/openid/return")
 	public void openIdReturnUrl() {

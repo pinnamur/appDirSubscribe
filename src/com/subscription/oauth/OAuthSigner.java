@@ -10,6 +10,9 @@ import oauth.signpost.exception.OAuthCommunicationException;
 import oauth.signpost.exception.OAuthExpectationFailedException;
 import oauth.signpost.exception.OAuthMessageSignerException;
 
+/**
+ * Responsible for signing requests before making API calls to AppDirect's marketplace.
+ */
 public class OAuthSigner {
 
 	//TODO: to be fetched from properties file.
@@ -21,6 +24,11 @@ public class OAuthSigner {
 		consumer = new DefaultOAuthConsumer(PROPERTY_CONSUMER_KEY, PROPERTY_CONSUMER_SECRET);
 	}
 
+	/**
+	 * Signs all outgoing requests to AppDirect marketplace.
+	 * @param  eventUrl [description]
+	 * @return          [description]
+	 */
 	public HttpURLConnection signUrl(String eventUrl) {
 		try
 		{
