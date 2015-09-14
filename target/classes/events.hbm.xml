@@ -3,12 +3,19 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.subscription.common.OrderData" table="order" catalog="events">
-        <id name="email" type="string">
-            <column name="EMAIL" unique="true" not-null="true"/>
+    <class name="com.subscription.orm.common.EventSchema" table="events" catalog="orders">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" unique="true" not-null="true"/>
+            <generator class="identity" />
         </id>
+        <property name="fullName" type="string">
+            <column name="fullName" not-null="true"/>
+        </property>
+        <property name="email" type="string">
+            <column name="email" not-null="true"/>
+        </property>
         <property name="editionCode" type="string">
-            <column name="EDITION_CODE" not-null="true" unique="false" />
+            <column name="editionCode" unique="false" />
         </property>
     </class>
 </hibernate-mapping>

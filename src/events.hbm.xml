@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.subscription.orm.common.EventSchema" table="events" catalog="orders">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" unique="true" not-null="true"/>
+            <generator class="identity" />
+        </id>
+        <property name="fullName" type="string">
+            <column name="fullName" not-null="true"/>
+        </property>
+        <property name="email" type="string">
+            <column name="email" not-null="true"/>
+        </property>
+        <property name="editionCode" type="string">
+            <column name="editionCode" unique="false" />
+        </property>
+    </class>
+</hibernate-mapping>
