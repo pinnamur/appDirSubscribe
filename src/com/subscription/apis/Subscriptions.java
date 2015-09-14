@@ -71,7 +71,6 @@ public class Subscriptions {
 	@Path("/create/{eventUrl}")
 	@Produces(MediaType.TEXT_XML)
 	public String subscriptionCreated(@PathParam("eventUrl") String eventUrl) {
-		eventUrl = "https://www.appdirect.com/rest/api/events/dummyOrder";
 		
 //		WebTarget target = client.target(eventUrl);
 //		Event order = target.request()//.register(oAuthSign())
