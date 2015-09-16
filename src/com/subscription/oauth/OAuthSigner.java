@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import org.apache.log4j.Logger;
+
 import oauth.signpost.OAuthConsumer;
 import oauth.signpost.basic.DefaultOAuthConsumer;
 import oauth.signpost.exception.OAuthCommunicationException;
@@ -19,6 +21,7 @@ public class OAuthSigner {
 	private static final String PROPERTY_CONSUMER_KEY = "appdirint-41352";
 	private static final String PROPERTY_CONSUMER_SECRET = "zupD4qIs107zd0Tk";
 	private OAuthConsumer consumer;
+	Logger logger = Logger.getLogger(OAuthSigner.class);
 
 	public OAuthSigner() {
 		consumer = new DefaultOAuthConsumer(PROPERTY_CONSUMER_KEY, PROPERTY_CONSUMER_SECRET);
@@ -32,13 +35,14 @@ public class OAuthSigner {
 	public HttpURLConnection signUrl(String eventUrl) {
 		try
 		{
+			logger.debug("Signing for url: "+eventUrl);
 			URL url = new URL(eventUrl);
 			HttpURLConnection request = (HttpURLConnection) url.openConnection();
 			consumer.sign(request);
 			return request;
 		}
 		catch (IOException | OAuthMessageSignerException | OAuthExpectationFailedException | OAuthCommunicationException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
 		}
 		return null;
 	}

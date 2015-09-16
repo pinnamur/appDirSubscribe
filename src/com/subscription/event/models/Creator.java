@@ -15,9 +15,6 @@ public class Creator {
 	String uuid;
 	
 	public String getFullName() {
-		if (firstName == null && lastName == null) {
-			return EMPTY_STRING;
-		}
 		return getEmptyIfNull(firstName) + " " + getEmptyIfNull(lastName);
 	}
 	
